@@ -7,6 +7,7 @@
 
   let page;
   let y;
+  let timeout;
   function hashchange() {
     const path = window.location.hash.slice(1);
     if (path.startsWith('/airport')) {
@@ -22,9 +23,15 @@
     }
   }
   function updateWindowY(e) {
-    if (!page){
+    
+    if (timeout) {
+		window.cancelAnimationFrame(timeout);
+	  }
+    timeout = window.requestAnimationFrame(function () {
+      if (!page){
       windowScrollY.update(() => window.scrollY)
     }
+    });
     return true;
   }
   onMount(hashchange);
@@ -46,7 +53,7 @@
     width: 100%;
   }
 </style>
-<svelte:window on:hashchange={hashchange} on:scroll|passive={updateWindowY} on:touchmove|passive={updateWindowY}/>
+<svelte:window on:hashchange={hashchange} on:scroll={updateWindowY}/>
 
 {#if page}
   <Page id={page} />
