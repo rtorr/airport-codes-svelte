@@ -1,17 +1,12 @@
 <script>
   import Search from './Search.svelte';
+  import { onMount } from 'svelte';
   let initData;
-  async function fetchData() {
+  onMount(async () => {
     const res = await fetch(`/assets/dataTwo.json`);
-    const text = await res.json();
-    if (res.ok) {
-      initData = text;
-      return text;
-    } else {
-      throw new Error(text);
-    }
-  }
-  fetchData();
+    const json = await res.json();
+    initData = json;
+  });
 </script>
 
 <style>
@@ -27,4 +22,4 @@
   }
 </style>
 
-<Search bind:initData></Search>
+<Search initData="{initData}"></Search>
