@@ -64,8 +64,8 @@
   <section>
     <div class="data">
       <div>
-          <p>Airport Codes (svelte) built by <a href="https://twitter.com/richardiii">Richard Torruellas</a> is an iteration of the original designed and built by <a href="https://twitter.com/lynnandtonic">Lynn Fisher</a> and <a href="https://twitter.com/nickcrohn">Nick Crohn</a></p>
-          <p>This is merely an experiment to play with svelte. All credit goes to <a href="https://twitter.com/lynnandtonic">Lynn Fisher</a> and <a href="https://twitter.com/nickcrohn">Nick Crohn</a> for their hard work on the original project.</p>
+          <p>The orginal is found here <a href="https://airportcod.es/">https://airportcod.es/</a></p>
+          <p>Airport Codes (svelte) built by <a href="https://twitter.com/richardiii">Richard Torruellas</a> is an iteration of the original designed and built by <a href="https://twitter.com/lynnandtonic">Lynn Fisher</a> and <a href="https://twitter.com/nickcrohn">Nick Crohn</a></p> <p>This is merely an experiment to play with svelte. All credit goes to <a href="https://twitter.com/lynnandtonic">Lynn Fisher</a> and <a href="https://twitter.com/nickcrohn">Nick Crohn</a> for their hard work on the original project.</p>
     </div>
   </section>
 </main>
