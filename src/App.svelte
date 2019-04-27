@@ -4,21 +4,21 @@
   import Search from './Search.svelte';
   import List from './List.svelte';
 
-	let page;
+  let page;
 
-	function hashchange() {
+  function hashchange() {
     const path = window.location.hash.slice(1);
-		if (path.startsWith('/airport')) {
-			const id = path.slice(9);
-			page = `${id}`
-		} else if(path.startsWith('/about')){
+    if (path.startsWith('/airport')) {
+      const id = path.slice(9);
+      page = `${id}`
+    } else if(path.startsWith('/about')){
       page = 'about'
     }else {
-			page = null;
+      page = null;
   }
 }
 
-	onMount(hashchange);
+  onMount(hashchange);
 </script>
 
 <style>
