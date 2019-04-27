@@ -83,6 +83,6 @@
 </style>
 
 <header>
-  <h1><a href="#">Airport Codes</a><a class="nav-about" href="#about">About</a></h1>
+  <h1><a href="#">Airport Codes (svelte)</a><a class="nav-about" href="#/about">About</a></h1>
   <input bind:value="{query}" on:input="{search}" placeholder="find your airport" />
 </header>

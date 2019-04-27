@@ -13,8 +13,10 @@
       throw new Error(json);
     }
   }
-
-  onMount(getPage);
+  console.log(id);
+  if (id !== 'about') {
+    onMount(getPage);
+  }
 </script>
 
 <style>
@@ -38,7 +40,18 @@
   }
 </style>
 
-{#if data.id}
+{#if id === 'about'}
+<main style="background-image: url(/assets/images/card/{data.id}.webp)">
+  <section>
+    <div class="data">
+      <div>
+          <p>This site was designed and built by <a href="https://twitter.com/lynnandtonic">Lynn Fisher</a> and <a href="https://twitter.com/nickcrohn">Nick Crohn</a>.
+          </p>
+          <p>The orginal is found here <a href="https://airportcod.es/">https://airportcod.es/</a></p>
+    </div>
+  </section>
+</main>
+{:else} {#if data.id}
 <main style="background-image: url(/assets/images/card/{data.id}.webp)">
   <section>
     <div class="data">
@@ -62,4 +75,4 @@
 </main>
 {:else}
 <p>loading...</p>
-{/if}
+{/if} {/if}

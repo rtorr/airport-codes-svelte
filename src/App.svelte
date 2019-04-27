@@ -7,11 +7,13 @@
 	let page;
 
 	function hashchange() {
-		const path = window.location.hash.slice(1);
+    const path = window.location.hash.slice(1);
 		if (path.startsWith('/airport')) {
 			const id = path.slice(9);
 			page = `${id}`
-		} else {
+		} else if(path.startsWith('/about')){
+      page = 'about'
+    }else {
 			page = null;
   }
 }
