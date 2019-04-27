@@ -7,7 +7,6 @@
 
   let page;
   let y;
-  let timeout;
   function hashchange() {
     const path = window.location.hash.slice(1);
     if (path.startsWith('/airport')) {
@@ -23,14 +22,9 @@
     }
   }
   function updateWindowY(e) {
-    if (timeout) {
-      window.cancelAnimationFrame(timeout);
+    if (!page){
+      windowScrollY.update(() => window.scrollY)
     }
-    timeout = window.requestAnimationFrame(function () {
-      if (!page){
-        windowScrollY.update(() => window.scrollY)
-      }
-    });
     return true;
   }
   onMount(hashchange);
