@@ -39,6 +39,17 @@
   .data {
     max-width: 500px;
   }
+  .back-container {
+    margin: 25px 0;
+  }
+  .back {
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+  .back, .back:visited {
+    color: #fff;
+  }
   @keyframes fadein {
     from {
       opacity: 0;
@@ -78,7 +89,7 @@
         </div>
       </div>
       <div>photo by <a href="{data.imageCreditLink}">{data.imageCredit}</a></div>
-      <a href="#">Airport Codes</a>
+      <div class="back-container"><a href="#" class="back">&#8592; back</a></div>
     </div>
   </section>
 </main>
