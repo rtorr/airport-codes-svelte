@@ -4,6 +4,7 @@
   let section;
   let observer;
   let visible = false;
+  let webpSupported = window.webpSupported ? '.webp' : '.jpg';
   onMount(() => {
     observer = new IntersectionObserver(([entry]) => {
       visible = entry && entry.isIntersecting;
@@ -75,7 +76,7 @@
   {#if visible}
   <a
     href="#/airport/{airport.id}"
-    style="background-image: url(/assets/images/card/{airport.id}.webp)"
+    style="background-image: url(/assets/images/card/{airport.id}{webpSupported})"
     ><span class="background"><span class="text">{airport.id}</span></span></a
   >
   {/if}
