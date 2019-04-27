@@ -6,10 +6,12 @@
   let visible = false;
   let webpSupported = window.webpSupported ? '.webp' : '.jpg';
   onMount(() => {
-    observer = new IntersectionObserver(([entry]) => {
-      visible = entry && entry.isIntersecting;
-    });
-    observer.observe(section);
+    if (!visible) {
+      observer = new IntersectionObserver(([entry]) => {
+        visible = entry && entry.isIntersecting;
+      });
+      observer.observe(section);
+    }
     return () => {
       observer.disconnect();
     };
@@ -33,7 +35,7 @@
     overflow: hidden;
     text-align: center;
     text-transform: uppercase;
-    transition: opacity 0.5s ease;
+    /* transition: opacity 0.5s ease; */
   }
 
   .card a {

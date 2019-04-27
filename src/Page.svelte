@@ -27,7 +27,6 @@
     background-size: cover;
     height: 100%;
     width: 100%;
-    animation: fadein 1s;
   }
   section {
     background: rgba(0, 0, 0, 0.8);
@@ -36,11 +35,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: fadein 0.4s;
   }
   .data {
     max-width: 500px;
     padding: 20px;
+    animation: fadein 0.4s;
   }
   .back-container {
     margin: 25px 0;
