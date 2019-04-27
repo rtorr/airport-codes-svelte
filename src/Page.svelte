@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   export let id;
   let data = {};
+  let webpSupported = window.webpSupported ? '.webp' : '.jpg';
 
   async function getPage() {
     const res = await fetch(`/assets/data/${id}.json`);
@@ -69,7 +70,7 @@
   </section>
 </main>
 {:else} {#if data.id}
-<main style="background-image: url(/assets/images/card/{data.id}.webp)">
+<main style="background-image: url(/assets/images/card/{data.id}{webpSupported})">
   <section>
     <div class="data">
       <div>
