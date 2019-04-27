@@ -23,7 +23,8 @@
     background-size: cover;
     height: 100%;
     width: 100%;
-    animation: fadein 1s
+    animation: fadein 1s;
+    overflow: hidden;
   }
   section {
     padding: 50px;
