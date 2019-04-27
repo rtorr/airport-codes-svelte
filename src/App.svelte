@@ -1,23 +1,32 @@
 <script>
   import { onMount } from 'svelte';
+  import { windowScrollY } from './store'
   import Page from './Page.svelte'
   import Search from './Search.svelte';
   import List from './List.svelte';
 
   let page;
-
+  let y;
   function hashchange() {
     const path = window.location.hash.slice(1);
     if (path.startsWith('/airport')) {
       const id = path.slice(9);
       page = `${id}`
+      window.scrollTo(0, 0);
     } else if(path.startsWith('/about')){
       page = 'about'
+      window.scrollTo(0, 0);
     }else {
       page = null;
+     
+    }
   }
-}
-
+  function updateWindowY(e) {
+    if (!page){
+      windowScrollY.update(() => window.scrollY)
+    }
+    return true;
+  }
   onMount(hashchange);
 </script>
 
@@ -37,11 +46,11 @@
     width: 100%;
   }
 </style>
-<svelte:window on:hashchange={hashchange}/>
+<svelte:window on:hashchange={hashchange} on:scroll|passive={updateWindowY}/>
 
-  {#if page}
+{#if page}
   <Page id={page} />
-  {:else}
+{:else}
   <Search/>
   <List/>
-  {/if}
+{/if}
