@@ -1,11 +1,11 @@
 <script>
   import Search from './Search.svelte';
-  let data;
+  let initData;
   async function fetchData() {
     const res = await fetch(`/assets/dataTwo.json`);
     const text = await res.json();
     if (res.ok) {
-      data = text;
+      initData = text;
       return text;
     } else {
       throw new Error(text);
@@ -27,8 +27,4 @@
   }
 </style>
 
-{#if data}
-<Search initData="{data}"></Search>
-{:else}
-<Search initData="{data}"></Search>
-{/if}
+<Search bind:initData></Search>

@@ -1,8 +1,8 @@
 <script>
   import Card from './Card.svelte';
-  export let initData;
+  export let initData = [];
   let query = '';
-  let results = initData;
+  $: results = initData;
   var SEARCH_FIELD = [
     'id',
     'name',
