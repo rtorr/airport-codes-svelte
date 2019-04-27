@@ -37,7 +37,6 @@
     overflow: hidden;
     text-align: center;
     text-transform: uppercase;
-    /* transition: opacity 0.5s ease; */
   }
 
   .card a {

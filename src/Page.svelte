@@ -41,6 +41,9 @@
     padding: 20px;
     animation: fadein 0.4s;
   }
+  .data h1 {
+    text-transform: uppercase;
+  }
   .back-container {
     margin: 25px 0;
   }
