@@ -1,8 +1,8 @@
 <script>
-  import Card from './Card.svelte';
-  export let initData = [];
+  import { get } from 'svelte/store';
+  import { results, data } from './store';
+
   let query = '';
-  $: results = initData;
   var SEARCH_FIELD = [
     'id',
     'name',
@@ -16,17 +16,19 @@
 
   function search() {
     const searchTerm = new RegExp('^' + query, 'gi');
-    results = initData.filter(function(airport) {
-      let hasMatch = false;
-      for (let i = 0; i < SEARCH_FIELD.length; i++) {
-        const key = SEARCH_FIELD[i];
-        if (searchTerm.test(airport[key])) {
-          hasMatch = true;
-          break;
+    results.set(
+      get(data).filter(function(airport) {
+        let hasMatch = false;
+        for (let i = 0; i < SEARCH_FIELD.length; i++) {
+          const key = SEARCH_FIELD[i];
+          if (searchTerm.test(airport[key])) {
+            hasMatch = true;
+            break;
+          }
         }
-      }
-      return hasMatch;
-    });
+        return hasMatch;
+      })
+    );
   }
 </script>
 
@@ -69,10 +71,7 @@
   a:visited {
     color: #fff;
   }
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
+
   @keyframes fadein {
     from {
       opacity: 0;
@@ -87,9 +86,3 @@
   <h1><a href="#">Airport Codes</a><a class="nav-about" href="#about">About</a></h1>
   <input bind:value="{query}" on:input="{search}" placeholder="find your airport" />
 </header>
-
-<div class="container">
-  {#if results} {#each results as result (result.id)}
-  <Card airport="{result}"></Card>
-  {/each} {/if}
-</div>

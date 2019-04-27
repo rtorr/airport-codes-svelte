@@ -1,25 +1,24 @@
 <script>
   import Search from './Search.svelte';
-  import { onMount } from 'svelte';
-  let initData = [];
-  onMount(async () => {
-    const res = await fetch(`/assets/dataTwo.json`);
-    const json = await res.json();
-    initData = json;
-  });
+  import List from './List.svelte';
 </script>
 
 <style>
   :global(html) {
     padding: 0;
     margin: 0;
+    height: 100%;
+    width: 100%;
   }
   :global(body) {
     padding: 0;
     margin: 0;
     background: #333;
     color: #fff;
+    height: 100%;
+    width: 100%;
   }
 </style>
 
-<Search initData="{initData}"></Search>
+<Search/>
+<List/>
