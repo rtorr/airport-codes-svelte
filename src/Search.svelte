@@ -39,7 +39,6 @@
     background: #40bae2;
     display: flex;
     flex-direction: row;
-    height: 30px;
     justify-content: space-between;
     padding: 10px 15px;
   }
@@ -54,12 +53,14 @@
     font-style: italic;
     line-height: 1;
     max-width: 50%;
+    margin: 0;
   }
   header input:focus {
     box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.15);
     outline: 0;
   }
   header h1 {
+    margin: 0;
     display: flex;
     flex-direction: row;
     font-size: 18px;
