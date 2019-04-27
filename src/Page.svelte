@@ -22,9 +22,9 @@
 <style>
   main {
     background-size: cover;
-
     height: 100%;
     width: 100%;
+    animation: fadein 1s
   }
   section {
     padding: 50px;
@@ -34,14 +34,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: fadein 0.4s;
   }
   .data {
     max-width: 500px;
   }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 </style>
 
 {#if id === 'about'}
-<main style="background-image: url(/assets/images/card/{data.id}.webp)">
+<main>
   <section>
     <div class="data">
       <div>
@@ -73,6 +82,4 @@
     </div>
   </section>
 </main>
-{:else}
-<p>loading...</p>
 {/if} {/if}
