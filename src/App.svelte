@@ -46,7 +46,7 @@
     width: 100%;
   }
 </style>
-<svelte:window on:hashchange={hashchange} on:scroll|passive={updateWindowY}/>
+<svelte:window on:hashchange={hashchange} on:scroll|passive={updateWindowY} on:touchmove|passive={updateWindowY}/>
 
 {#if page}
   <Page id={page} />
