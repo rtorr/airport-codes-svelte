@@ -24,7 +24,6 @@
     height: 100%;
     width: 100%;
     animation: fadein 1s;
-    overflow: hidden;
   }
   section {
     background: rgba(0, 0, 0, 0.8);
