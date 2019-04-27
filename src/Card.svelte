@@ -13,7 +13,9 @@
       observer.observe(section);
     }
     return () => {
-      observer.disconnect();
+      if (observer) {
+        observer.disconnect();
+      }
     };
   });
 </script>
