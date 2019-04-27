@@ -23,9 +23,8 @@
     }
   }
   function updateWindowY(e) {
-    
     if (timeout) {
-		window.cancelAnimationFrame(timeout);
+		  window.cancelAnimationFrame(timeout);
 	  }
     timeout = window.requestAnimationFrame(function () {
       if (!page){
@@ -43,6 +42,7 @@
     margin: 0;
     height: 100%;
     width: 100%;
+    -webkit-overflow-scrolling: touch;
   }
   :global(body) {
     padding: 0;
@@ -51,9 +51,10 @@
     color: #fff;
     height: 100%;
     width: 100%;
+    -webkit-overflow-scrolling: touch;
   }
 </style>
-<svelte:window on:hashchange={hashchange} on:scroll={updateWindowY}/>
+<svelte:window on:hashchange={hashchange} on:scroll|passive={updateWindowY}/>
 
 {#if page}
   <Page id={page} />
