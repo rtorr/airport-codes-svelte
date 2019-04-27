@@ -24,12 +24,12 @@
   }
   function updateWindowY(e) {
     if (timeout) {
-		  window.cancelAnimationFrame(timeout);
-	  }
+      window.cancelAnimationFrame(timeout);
+    }
     timeout = window.requestAnimationFrame(function () {
       if (!page){
-      windowScrollY.update(() => window.scrollY)
-    }
+        windowScrollY.update(() => window.scrollY)
+      }
     });
     return true;
   }
