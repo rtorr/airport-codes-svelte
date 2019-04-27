@@ -27,7 +27,6 @@
     overflow: hidden;
   }
   section {
-    padding: 50px;
     background: rgba(0, 0, 0, 0.8);
     height: 100%;
     width: 100%;
