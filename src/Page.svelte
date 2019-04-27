@@ -13,7 +13,6 @@
       throw new Error(json);
     }
   }
-  console.log(id);
   if (id !== 'about') {
     onMount(getPage);
   }
