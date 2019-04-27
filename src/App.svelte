@@ -1,7 +1,7 @@
 <script>
   import Search from './Search.svelte';
   import { onMount } from 'svelte';
-  let initData;
+  let initData = [];
   onMount(async () => {
     const res = await fetch(`/assets/dataTwo.json`);
     const json = await res.json();
