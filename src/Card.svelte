@@ -73,7 +73,9 @@
 
 <div class="card" bind:this="{section}" class:active="{visible}">
   {#if visible}
-  <a href="#" style="background-image: url(/assets/images/card/{airport.id}.webp)"
+  <a
+    href="#/airport/{airport.id}"
+    style="background-image: url(/assets/images/card/{airport.id}.webp)"
     ><span class="background"><span class="text">{airport.id}</span></span></a
   >
   {/if}

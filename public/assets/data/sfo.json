@@ -1,0 +1,11 @@
+{
+    "id": "sfo",
+    "name": "San Francisco International Airport",
+    "city": "San Francisco",
+    "state": "California",
+    "stateShort": "CA",
+    "country": "USA",
+    "description": "Before the 1930’s, airports had two-letter codes. When codes switched to three letters, many added the letter ‘X’ to the end. *S*an *F*rancisc*o* instead used its last letter ‘O’.",
+    "imageCredit": "Richard Winchell",
+    "imageCreditLink": "https://www.flickr.com/photos/richardwinchell/"
+}

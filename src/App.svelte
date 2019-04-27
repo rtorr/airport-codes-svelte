@@ -1,6 +1,22 @@
 <script>
+  import { onMount } from 'svelte';
+  import Page from './Page.svelte'
   import Search from './Search.svelte';
   import List from './List.svelte';
+
+	let page;
+
+	function hashchange() {
+		const path = window.location.hash.slice(1);
+		if (path.startsWith('/airport')) {
+			const id = path.slice(9);
+			page = `${id}`
+		} else {
+			page = null;
+  }
+}
+
+	onMount(hashchange);
 </script>
 
 <style>
@@ -19,6 +35,11 @@
     width: 100%;
   }
 </style>
+<svelte:window on:hashchange={hashchange}/>
 
-<Search/>
-<List/>
+  {#if page}
+  <Page id={page} />
+  {:else}
+  <Search/>
+  <List/>
+  {/if}

@@ -1,0 +1,11 @@
+{
+    "id": "jfk",
+    "name": "John F. Kennedy International Airport",
+    "city": "New York City",
+    "state": "New York",
+    "stateShort": "NY",
+    "country": "USA",
+    "description": "In 1963, Idlewild Airport was renamed in dedication to *J*ohn *F*. *K*ennedy. Unlike many other airports, it also changed its three-letter airport code from IDL to JFK.",
+    "imageCredit": "Timothy Vogel",
+    "imageCreditLink": "https://www.flickr.com/photos/vogelium/"
+}
