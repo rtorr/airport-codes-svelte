@@ -20,6 +20,9 @@
 </script>
 
 <style>
+  main > * {
+   box-sizing: border-box;
+  }
   main {
     background-size: cover;
     height: 100%;
@@ -37,6 +40,7 @@
   }
   .data {
     max-width: 500px;
+    padding: 20px;
   }
   .back-container {
     margin: 25px 0;
