@@ -1,14 +1,19 @@
 <script>
   import Card from './Card.svelte';
+  import { get } from 'svelte/store';
+
   import { data, results, windowScrollY } from './store';
   import { onMount } from 'svelte';
-  onMount(async () => {
+  if (!get(data)) {
+  }
+  async function getData() {
     const res = await fetch(`/assets/dataTwo.json`);
     const json = await res.json();
     data.update(() => json);
     results.update(() => json);
     window.scrollTo(0, $windowScrollY);
-  });
+  }
+  onMount(!get(data).length ? getData : () => window.scrollTo(0, $windowScrollY));
 </script>
 
 <style>
