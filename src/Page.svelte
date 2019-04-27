@@ -38,8 +38,8 @@
   }
 </style>
 
+{#if data.id}
 <main style="background-image: url(/assets/images/card/{data.id}.webp)">
-  {#if data}
   <section>
     <div class="data">
       <div>
@@ -59,7 +59,7 @@
       <a href="#">Airport Codes</a>
     </div>
   </section>
-  {:else}
-  <p>loading...</p>
-  {/if}
 </main>
+{:else}
+<p>loading...</p>
+{/if}
