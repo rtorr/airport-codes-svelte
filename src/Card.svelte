@@ -4,7 +4,7 @@
   let section;
   let observer;
   let visible = false;
-  let webpSupported = window.webpSupported ? '.webp' : '.jpg';
+  let imageExtension = window.webpSupported ? '.webp' : '.jpg';
   onMount(() => {
     if (!visible) {
       observer = new IntersectionObserver(([entry]) => {
@@ -22,65 +22,77 @@
 
 <style>
   .card {
-    align-items: center;
-    align-self: stretch;
     background: rgba(108, 129, 150, 0.56);
+    background-size: cover;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    font-size: 30px;
+    flex: 1 0 50%;
     font-size: 60px;
     font-weight: 900;
-    height: 300px;
-    justify-content: center;
-    opacity: 0.3;
+    height: 220px;
     overflow: hidden;
     text-align: center;
     text-transform: uppercase;
   }
 
   .card a {
-    align-items: center;
-    align-self: center;
-    background-image: none;
-    background-size: cover;
+    transition: background-color 0.5s ease;
+    background: rgba(0, 0, 0, 0.45);
+    line-height: 70px;
+    padding: 75px 0;
+    width: 100%;
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    text-align: center;
     text-decoration: none;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    width: 100%;
   }
-  a:hover .background {
+  .card a:hover,
+  .card a:focus {
     background: rgba(0, 0, 0, 0);
   }
-  .background {
-    align-items: center;
-    align-self: center;
-    background: rgba(0, 0, 0, 0.35);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-    transition: background 0.5s ease;
-    width: 100%;
+
+  @media only screen and (min-width: 600px) {
+    .card {
+      flex-basis: 33.333%;
+    }
   }
-  .active {
-    opacity: 1;
+
+  @media only screen and (min-width: 800px) {
+    .card {
+      flex-basis: 25%;
+    }
+  }
+
+  @media only screen and (min-width: 1100px) {
+    .card {
+      flex-basis: 20%;
+    }
+  }
+
+  @media only screen and (min-width: 1500px) {
+    .card {
+      flex-basis: 16.667%;
+    }
+  }
+
+  @media only screen and (min-width: 2000px) {
+    .card {
+      flex-basis: 14.286%;
+    }
+  }
+
+  @media only screen and (min-width: 2500px) {
+    .card {
+      flex-basis: 12.5%;
+    }
   }
 </style>
 
-<div class="card" bind:this="{section}" class:active="{visible}">
-  {#if visible}
-  <a
-    href="#/airport/{airport.id}"
-    style="background-image: url(/assets/images/card/{airport.id}{webpSupported})"
-    ><span class="background"><span class="text">{airport.id}</span></span></a
-  >
-  {/if}
-</div>
+<li
+  class="card"
+  bind:this="{section}"
+  class:active="{visible}"
+  style="background: {
+    visible ? `url('/assets/images/card/${airport.id}${imageExtension}')` : 'transparent'
+  }">
+  <a href="#/airport/{airport.id}">{airport.id}</a>
+</li>

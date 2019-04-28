@@ -22,23 +22,25 @@
     height: 100%;
     width: 100%;
     display: flex;
-    align-items: center;
+    flex-flow: row wrap;
+    align-items: stretch;
     justify-content: center;
-  }
-  .active {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
   p {
     font-size: 30px;
     text-align: center;
   }
+  ul {
+    margin: 52px 0 0 0;
+    padding: 0;
+    list-style: none;
+  }
 </style>
 
-<div class="container" class:active="{$results.length}">
+<ul class="container" class:active="{$results.length}">
   {#if $results.length} {#each $results as result (result.id)}
   <Card airport="{result}"></Card>
   {/each} {:else}
   <p>loading...</p>
   {/if}
-</div>
+</ul>
