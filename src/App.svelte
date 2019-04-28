@@ -16,18 +16,21 @@
     } else if(path.startsWith('/about')){
       page = 'about'
       window.scrollTo(0, 0);
-    }else {
+    } else {
       page = null;
      
     }
   }
-  function updateWindowY(e) {
-    if (!page){
-      windowScrollY.update(() => window.scrollY)
+  let lastYOffset = 0;
+  function updateWindowY() {
+    let currentYOffset = window.pageYOffset;
+    if (!page && currentYOffset !== lastYOffset) {
+      windowScrollY.update(() => currentYOffset);
+      lastYOffset = currentYOffset;
     }
-    return true;
+    requestAnimationFrame(updateWindowY);
   }
-  onMount(hashchange);
+  updateWindowY();
 </script>
 
 <style>
@@ -48,7 +51,7 @@
     -webkit-overflow-scrolling: touch;
   }
 </style>
-<svelte:window on:hashchange={hashchange} on:scroll|passive={updateWindowY}/>
+<svelte:window on:hashchange={hashchange} />
 
 {#if page}
   <Page id={page} />
