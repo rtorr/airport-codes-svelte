@@ -59,6 +59,7 @@
     position: relative;
   }
   header label {
+    height: 32px;
     width: 0;
     overflow: hidden;
   }
