@@ -35,7 +35,6 @@
 <style>
   header {
     align-items: center;
-    animation: fadein 0.4s;
     background: #135e77;
     padding: 10px 15px;
     position: fixed;
@@ -95,15 +94,6 @@
 
     header input:focus {
       flex-basis: 100%;
-    }
-  }
-
-  @keyframes fadein {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
     }
   }
 </style>
