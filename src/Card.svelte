@@ -91,8 +91,8 @@
   class="card"
   bind:this="{section}"
   class:active="{visible}"
-  style="background: {
-    visible ? `url('/assets/images/card/${airport.id}${imageExtension}')` : 'transparent'
+  style="{
+    visible ? `background-image: url('/assets/images/card/${airport.id}${imageExtension}')` : ''
   }">
   <a href="#/airport/{airport.id}">{airport.id}</a>
 </li>

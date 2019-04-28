@@ -21,6 +21,7 @@
      
     }
   }
+  hashchange();
   let lastYOffset = 0;
   function updateWindowY() {
     let currentYOffset = window.pageYOffset;
