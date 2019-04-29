@@ -40,7 +40,6 @@
 <ul class="container" class:active="{$results.length}">
   {#if $results.length} {#each $results as result (result.id)}
   <Card airport="{result}"></Card>
-  {/each} {:else}
-  <p>loading...</p>
+  {/each}
   {/if}
 </ul>
